@@ -9,12 +9,12 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/gruntwork-io/terragrunt/aws_helper"
-	"github.com/gruntwork-io/terragrunt/dynamodb"
-	"github.com/gruntwork-io/terragrunt/errors"
-	"github.com/gruntwork-io/terragrunt/options"
-	"github.com/gruntwork-io/terragrunt/shell"
-	"github.com/gruntwork-io/terragrunt/util"
+	"github.com/troylar/terragrunt/aws_helper"
+	"github.com/troylar/terragrunt/dynamodb"
+	"github.com/troylar/terragrunt/errors"
+	"github.com/troylar/terragrunt/options"
+	"github.com/troylar/terragrunt/shell"
+	"github.com/troylar/terragrunt/util"
 	"github.com/mitchellh/mapstructure"
 )
 

@@ -7,11 +7,11 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/gruntwork-io/terragrunt/config"
-	"github.com/gruntwork-io/terragrunt/errors"
-	"github.com/gruntwork-io/terragrunt/options"
-	"github.com/gruntwork-io/terragrunt/shell"
-	"github.com/gruntwork-io/terragrunt/util"
+	"github.com/troylar/terragrunt/config"
+	"github.com/troylar/terragrunt/errors"
+	"github.com/troylar/terragrunt/options"
+	"github.com/troylar/terragrunt/shell"
+	"github.com/troylar/terragrunt/util"
 	"github.com/hashicorp/go-getter"
 	zglob "github.com/mattn/go-zglob"
 )
@@ -261,7 +261,7 @@ func resolveTerraformModule(terragruntConfigPath string, terragruntOptions *opti
 		opts.DownloadDir = downloadDir
 	}
 
-	// Fix for https://github.com/gruntwork-io/terragrunt/issues/208
+	// Fix for https://github.com/troylar/terragrunt/issues/208
 	matches, err := filepath.Glob(filepath.Join(filepath.Dir(terragruntConfigPath), "*.tf"))
 	if err != nil {
 		return nil, err

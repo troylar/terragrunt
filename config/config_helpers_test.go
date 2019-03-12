@@ -6,10 +6,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/gruntwork-io/terragrunt/errors"
-	"github.com/gruntwork-io/terragrunt/options"
-	"github.com/gruntwork-io/terragrunt/test/helpers"
-	"github.com/gruntwork-io/terragrunt/util"
+	"github.com/troylar/terragrunt/errors"
+	"github.com/troylar/terragrunt/options"
+	"github.com/troylar/terragrunt/test/helpers"
+	"github.com/troylar/terragrunt/util"
 	"github.com/stretchr/testify/assert"
 )
 

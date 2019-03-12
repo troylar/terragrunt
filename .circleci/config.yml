@@ -1,5 +1,5 @@
 workspace_root: &workspace_root
-  /go/src/github.com/gruntwork-io/terragrunt
+  /go/src/github.com/troylar/terragrunt
 
 defaults: &defaults
   working_directory: *workspace_root
@@ -18,11 +18,11 @@ jobs:
         keys:
         - dep-{{ checksum "Gopkg.lock" }}
     - run: dep ensure
-    - run: gruntwork-install --binary-name 'terratest_log_parser' --repo 'https://github.com/gruntwork-io/terratest' --tag 'v0.13.8' --download-dir .
+    - run: gruntwork-install --binary-name 'terratest_log_parser' --repo 'https://github.com/troylar/terratest' --tag 'v0.13.8' --download-dir .
     - save_cache:
         key: dep-{{ checksum "Gopkg.lock" }}
         paths:
-        - /go/src/github.com/gruntwork-io/terragrunt/vendor
+        - /go/src/github.com/troylar/terragrunt/vendor
     - persist_to_workspace:
         root: *workspace_root
         paths: vendor

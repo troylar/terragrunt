@@ -7,10 +7,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/gruntwork-io/terragrunt/config"
-	"github.com/gruntwork-io/terragrunt/errors"
-	"github.com/gruntwork-io/terragrunt/options"
-	"github.com/gruntwork-io/terragrunt/util"
+	"github.com/troylar/terragrunt/config"
+	"github.com/troylar/terragrunt/errors"
+	"github.com/troylar/terragrunt/util"
+	"github.com/troylar/terragrunt/options"
 	"github.com/urfave/cli"
 )
 
@@ -108,6 +108,11 @@ func parseTerragruntOptionsFromArgs(args []string, writer, errWriter io.Writer) 
 	opts.NonInteractive = parseBooleanArg(args, OPT_NON_INTERACTIVE, os.Getenv("TF_INPUT") == "false" || os.Getenv("TF_INPUT") == "0")
 	opts.TerraformCliArgs = filterTerragruntArgs(args)
 	opts.TerraformCommand = util.FirstArg(opts.TerraformCliArgs)
+	if strings.HasSuffix(opts.TerraformCommand, "-all") {
+		c := strings.Split(opts.TerraformCommand, "-")
+		opts.TerraformCommand = c[0]
+		opts.RecurseSubFolders = true
+	}
 	opts.WorkingDir = filepath.ToSlash(workingDir)
 	opts.DownloadDir = filepath.ToSlash(downloadDir)
 	opts.Logger = util.CreateLoggerWithWriter(errWriter, "")

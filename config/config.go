@@ -6,10 +6,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/gruntwork-io/terragrunt/errors"
-	"github.com/gruntwork-io/terragrunt/options"
-	"github.com/gruntwork-io/terragrunt/remote"
-	"github.com/gruntwork-io/terragrunt/util"
+	"github.com/troylar/terragrunt/errors"
+	"github.com/troylar/terragrunt/options"
+	"github.com/troylar/terragrunt/remote"
+	"github.com/troylar/terragrunt/util"
 	"github.com/hashicorp/hcl"
 )
 

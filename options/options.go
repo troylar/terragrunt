@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/gruntwork-io/terragrunt/errors"
-	"github.com/gruntwork-io/terragrunt/util"
+	"github.com/troylar/terragrunt/errors"
+	"github.com/troylar/terragrunt/util"
 	"github.com/hashicorp/go-version"
 )
 
@@ -68,7 +68,7 @@ type TerragruntOptions struct {
 	// The ARN of an IAM Role to assume before running Terraform
 	IamRole string
 
-	// If set to true, continue running *-all commands even if a dependency has errors. This is mostly useful for 'output-all <some_variable>'. See https://github.com/gruntwork-io/terragrunt/issues/193
+	// If set to true, continue running *-all commands even if a dependency has errors. This is mostly useful for 'output-all <some_variable>'. See https://github.com/troylar/terragrunt/issues/193
 	IgnoreDependencyErrors bool
 
 	// If you want stdout to go somewhere other than os.stdout
@@ -105,6 +105,9 @@ type TerragruntOptions struct {
 	// packages can use the command without a direct reference back to the cli package (which would create a
 	// circular dependency).
 	RunTerragrunt func(*TerragruntOptions) error
+
+	// Run the command in all sub-folders
+	RecurseSubFolders bool
 }
 
 // Create a new TerragruntOptions object with reasonable defaults for real usage
@@ -178,7 +181,7 @@ func (terragruntOptions *TerragruntOptions) Clone(terragruntConfigPath string) *
 	workingDir := filepath.Dir(terragruntConfigPath)
 
 	// Note that we clone lists and maps below as TerragruntOptions may be used and modified concurrently in the code
-	// during xxx-all commands (e.g., apply-all, plan-all). See https://github.com/gruntwork-io/terragrunt/issues/367
+	// during xxx-all commands (e.g., apply-all, plan-all). See https://github.com/troylar/terragrunt/issues/367
 	// for more info.
 	return &TerragruntOptions{
 		TerragruntConfigPath:   terragruntConfigPath,

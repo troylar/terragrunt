@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/gruntwork-io/terragrunt/options"
 	"github.com/stretchr/testify/assert"
+	"github.com/troylar/terragrunt/options"
 )
 
 func TestRunShellCommand(t *testing.T) {

@@ -9,16 +9,16 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/gruntwork-io/terragrunt/aws_helper"
-	"github.com/gruntwork-io/terragrunt/config"
-	"github.com/gruntwork-io/terragrunt/configstack"
-	"github.com/gruntwork-io/terragrunt/errors"
-	"github.com/gruntwork-io/terragrunt/options"
-	"github.com/gruntwork-io/terragrunt/remote"
-	"github.com/gruntwork-io/terragrunt/shell"
-	"github.com/gruntwork-io/terragrunt/util"
 	"github.com/hashicorp/go-version"
 	"github.com/mattn/go-zglob"
+	"github.com/troylar/terragrunt/aws_helper"
+	"github.com/troylar/terragrunt/config"
+	"github.com/troylar/terragrunt/configstack"
+	"github.com/troylar/terragrunt/errors"
+	"github.com/troylar/terragrunt/options"
+	"github.com/troylar/terragrunt/remote"
+	"github.com/troylar/terragrunt/shell"
+	"github.com/troylar/terragrunt/util"
 	"github.com/urfave/cli"
 )
 
@@ -162,7 +162,7 @@ func CreateTerragruntCli(version string, writer io.Writer, errwriter io.Writer) 
 	app.Writer = writer
 	app.ErrWriter = errwriter
 	app.UsageText = `Terragrunt is a thin wrapper for Terraform that provides extra tools for working with multiple
-   Terraform modules, remote state, and locking. For documentation, see https://github.com/gruntwork-io/terragrunt/.`
+   Terraform modules, remote state, and locking. For documentation, see https://github.com/troylar/terragrunt/.`
 
 	return app
 }
@@ -208,9 +208,6 @@ func checkDeprecated(command string, terragruntOptions *options.TerragruntOption
 // runCommand runs one or many terraform commands based on the type of
 // terragrunt command
 func runCommand(command string, terragruntOptions *options.TerragruntOptions) (finalEff error) {
-	if isMultiModuleCommand(command) {
-		return runMultiModuleCommand(command, terragruntOptions)
-	}
 	return runTerragrunt(terragruntOptions)
 }
 
@@ -296,7 +293,7 @@ func shouldRunHook(hook config.Hook, terragruntOptions *options.TerragruntOption
 	//then execute.
 	//Skip execution if there was an error AND we care about errors
 
-	//resolves: https://github.com/gruntwork-io/terragrunt/issues/459
+	//resolves: https://github.com/troylar/terragrunt/issues/459
 	//by helping to filter out nil errors that were acting as false positives
 	//for the len(previousExecErrors) == 0 check that used to be here
 	multiError := errors.NewMultiError(previousExecErrors...)
@@ -617,30 +614,6 @@ func verifySourceDownloadArguments(allowSourceDownload bool, terragruntOptions *
 		}
 	}
 	return nil
-}
-
-// Returns true if the command the user wants to execute is supposed to affect multiple Terraform modules, such as the
-// apply-all or destroy-all command.
-func isMultiModuleCommand(command string) bool {
-	return util.ListContainsElement(MULTI_MODULE_COMMANDS, command)
-}
-
-// Execute a command that affects multiple Terraform modules, such as the apply-all or destroy-all command.
-func runMultiModuleCommand(command string, terragruntOptions *options.TerragruntOptions) error {
-	switch command {
-	case CMD_PLAN_ALL:
-		return planAll(terragruntOptions)
-	case CMD_APPLY_ALL:
-		return applyAll(terragruntOptions)
-	case CMD_DESTROY_ALL:
-		return destroyAll(terragruntOptions)
-	case CMD_OUTPUT_ALL:
-		return outputAll(terragruntOptions)
-	case CMD_VALIDATE_ALL:
-		return validateAll(terragruntOptions)
-	default:
-		return errors.WithStackTrace(UnrecognizedCommand(command))
-	}
 }
 
 // Return true if modules aren't already downloaded and the Terraform templates in this project reference modules.

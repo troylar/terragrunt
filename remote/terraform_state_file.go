@@ -3,8 +3,8 @@ package remote
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gruntwork-io/terragrunt/errors"
-	"github.com/gruntwork-io/terragrunt/util"
+	"github.com/troylar/terragrunt/errors"
+	"github.com/troylar/terragrunt/util"
 	"io/ioutil"
 )
 

@@ -1,6 +1,6 @@
 [![Maintained by Gruntwork.io](https://img.shields.io/badge/maintained%20by-gruntwork.io-%235849a6.svg)](https://gruntwork.io/?ref=repo_terragrunt)
-[![Go Report Card](https://goreportcard.com/badge/github.com/gruntwork-io/terragrunt)](https://goreportcard.com/report/github.com/gruntwork-io/terragrunt)
-[![GoDoc](https://godoc.org/github.com/gruntwork-io/terragrunt?status.svg)](https://godoc.org/github.com/gruntwork-io/terragrunt)
+[![Go Report Card](https://goreportcard.com/badge/github.com/troylar/terragrunt)](https://goreportcard.com/report/github.com/troylar/terragrunt)
+[![GoDoc](https://godoc.org/github.com/troylar/terragrunt?status.svg)](https://godoc.org/github.com/troylar/terragrunt)
 
 # Terragrunt
 
@@ -11,7 +11,7 @@ Terragrunt is a thin wrapper for [Terraform](https://www.terraform.io/) that pro
 
 1. [Install Terraform](https://www.terraform.io/intro/getting-started/install.html).
 
-1. Install Terragrunt by going to the [Releases Page](https://github.com/gruntwork-io/terragrunt/releases),
+1. Install Terragrunt by going to the [Releases Page](https://github.com/troylar/terragrunt/releases),
    downloading the binary for your OS, renaming it to `terragrunt`, and adding it to your PATH.
      * See the [Install Terragrunt](#install-terragrunt) docs for other installation options.
 
@@ -45,8 +45,8 @@ Terragrunt is a thin wrapper for [Terraform](https://www.terraform.io/) that pro
    [How to create reusable infrastructure with Terraform modules](https://blog.gruntwork.io/how-to-create-reusable-infrastructure-with-terraform-modules-25526d65f73d)
    and [How to use Terraform as a team](https://blog.gruntwork.io/how-to-use-terraform-as-a-team-251bc1104973).
 
-1. Check out the [terragrunt-infrastructure-modules-example](https://github.com/gruntwork-io/terragrunt-infrastructure-modules-example)
-   and [terragrunt-infrastructure-live-example](https://github.com/gruntwork-io/terragrunt-infrastructure-live-example)
+1. Check out the [terragrunt-infrastructure-modules-example](https://github.com/troylar/terragrunt-infrastructure-modules-example)
+   and [terragrunt-infrastructure-live-example](https://github.com/troylar/terragrunt-infrastructure-live-example)
    repos for fully-working sample code that demonstrates how to use Terragrunt.
 
 
@@ -78,7 +78,7 @@ Terragrunt is a thin wrapper for [Terraform](https://www.terraform.io/) that pro
 
 Note that third-party Terragrunt packages may not be updated with the latest version, but are often close.
 Please check your version against the latest available on the
-[Releases Page](https://github.com/gruntwork-io/terragrunt/releases).
+[Releases Page](https://github.com/troylar/terragrunt/releases).
 
 ### OSX
 You can install Terragrunt on OSX using [Homebrew](https://brew.sh/): `brew install terragrunt`.
@@ -87,7 +87,7 @@ You can install Terragrunt on OSX using [Homebrew](https://brew.sh/): `brew inst
 You can install Terragrunt on Linux using [Linuxbrew](https://linuxbrew.sh/): `brew install terragrunt`.
 
 ### Manual
-You can install Terragrunt manually by going to the [Releases Page](https://github.com/gruntwork-io/terragrunt/releases),
+You can install Terragrunt manually by going to the [Releases Page](https://github.com/troylar/terragrunt/releases),
 downloading the binary for your OS, renaming it to `terragrunt`, and adding it to your PATH.
 
 
@@ -253,8 +253,8 @@ versions (i.e. `stage` is testing out a newer version of the module). They also 
 `app` module to different values that are appropriate for the environment: smaller/fewer servers in `stage`
 to save money, larger/more instances in `prod` for scalability and high availability.
 
-Check out the [terragrunt-infrastructure-modules-example](https://github.com/gruntwork-io/terragrunt-infrastructure-modules-example)
-and [terragrunt-infrastructure-live-example](https://github.com/gruntwork-io/terragrunt-infrastructure-live-example)
+Check out the [terragrunt-infrastructure-modules-example](https://github.com/troylar/terragrunt-infrastructure-modules-example)
+and [terragrunt-infrastructure-live-example](https://github.com/troylar/terragrunt-infrastructure-live-example)
 repos for fully-working sample code that demonstrates this new folder structure.
 
 
@@ -556,7 +556,7 @@ terragrunt = {
 
 The `include` block tells Terragrunt to use the exact same Terragrunt configuration from the `terraform.tfvars` file
 specified via the `path` parameter. It behaves exactly as if you had copy/pasted the Terraform configuration from
-the included file's terragrunt = { ... } configuration into `mysql/terraform.tfvars`, but this approach is much easier to maintain! Including variables defined outside of the terragrunt block is discussed in [#132](https://github.com/gruntwork-io/terragrunt/issues/132).
+the included file's terragrunt = { ... } configuration into `mysql/terraform.tfvars`, but this approach is much easier to maintain! Including variables defined outside of the terragrunt block is discussed in [#132](https://github.com/troylar/terragrunt/issues/132).
 
 The child `.tfvars` file's `terragrunt.terraform` settings will be merged into the parent file's `terragrunt.terraform`
 settings as follows:
@@ -594,8 +594,8 @@ The `terraform.tfvars` files above use two Terragrunt built-in functions:
 
 See [the Interpolation Syntax docs](#interpolation-syntax) for more info.
 
-Check out the [terragrunt-infrastructure-modules-example](https://github.com/gruntwork-io/terragrunt-infrastructure-modules-example)
-and [terragrunt-infrastructure-live-example](https://github.com/gruntwork-io/terragrunt-infrastructure-live-example)
+Check out the [terragrunt-infrastructure-modules-example](https://github.com/troylar/terragrunt-infrastructure-modules-example)
+and [terragrunt-infrastructure-live-example](https://github.com/troylar/terragrunt-infrastructure-live-example)
 repos for fully-working sample code that demonstrates how to use Terragrunt to manage remote state.
 
 
@@ -2080,7 +2080,7 @@ To ensure that your changes get properly formatted, please install the git pre-c
 
 #### Releasing new versions
 
-To release a new version, just go to the [Releases Page](https://github.com/gruntwork-io/terragrunt/releases) and
+To release a new version, just go to the [Releases Page](https://github.com/troylar/terragrunt/releases) and
 create a new release. The CircleCI job for this repo has been configured to:
 
 1. Automatically detect new tags.

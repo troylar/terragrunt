@@ -2,7 +2,7 @@ package remote
 
 import (
 	"encoding/json"
-	"github.com/gruntwork-io/terragrunt/errors"
+	"github.com/troylar/terragrunt/errors"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )

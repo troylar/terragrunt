@@ -6,14 +6,14 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/gruntwork-io/terragrunt/shell"
+	"github.com/troylar/terragrunt/shell"
 
 	"github.com/aws/aws-sdk-go/aws/credentials/stscreds"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sts"
-	"github.com/gruntwork-io/terragrunt/errors"
-	"github.com/gruntwork-io/terragrunt/options"
-	"github.com/gruntwork-io/terragrunt/util"
+	"github.com/troylar/terragrunt/errors"
+	"github.com/troylar/terragrunt/options"
+	"github.com/troylar/terragrunt/util"
 )
 
 var INTERPOLATION_PARAMETERS = `(\s*"[^"]*?"\s*,?\s*)*`
